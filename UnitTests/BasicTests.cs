@@ -229,15 +229,15 @@ namespace UnitTestProject1
             tree.Add(26, 4);
             tree.Add(7, 1);
             tree.Add(23, 3);
-            List<int> postOrder = tree.PostOrderKeys;
-            Assert.AreEqual(5, postOrder[0]);
-            Assert.AreEqual(7, postOrder[1]);
-            Assert.AreEqual(6, postOrder[2]);
-            Assert.AreEqual(23, postOrder[3]);
-            Assert.AreEqual(26, postOrder[4]);
-            Assert.AreEqual(22, postOrder[5]);
-            Assert.AreEqual(10, postOrder[6]);
-            Assert.AreEqual(8, postOrder[7]);
+            List<int> keys = tree.PostOrderKeys;
+            Assert.AreEqual(5, keys[0]);
+            Assert.AreEqual(7, keys[1]);
+            Assert.AreEqual(6, keys[2]);
+            Assert.AreEqual(23, keys[3]);
+            Assert.AreEqual(26, keys[4]);
+            Assert.AreEqual(22, keys[5]);
+            Assert.AreEqual(10, keys[6]);
+            Assert.AreEqual(8, keys[7]);
 
         }
 
@@ -253,15 +253,39 @@ namespace UnitTestProject1
             tree.Add(26, 4);
             tree.Add(7, 1);
             tree.Add(23, 3);
-            List<int> preOrder = tree.PreOrderKeys;
-            Assert.AreEqual(8, preOrder[0]);
-            Assert.AreEqual(6, preOrder[1]);
-            Assert.AreEqual(5, preOrder[2]);
-            Assert.AreEqual(7, preOrder[3]);
-            Assert.AreEqual(10, preOrder[4]);
-            Assert.AreEqual(22, preOrder[5]);
-            Assert.AreEqual(26, preOrder[6]);
-            Assert.AreEqual(23, preOrder[7]);
+            List<int> keys = tree.PreOrderKeys;
+            Assert.AreEqual(8, keys[0]);
+            Assert.AreEqual(6, keys[1]);
+            Assert.AreEqual(5, keys[2]);
+            Assert.AreEqual(7, keys[3]);
+            Assert.AreEqual(10, keys[4]);
+            Assert.AreEqual(22, keys[5]);
+            Assert.AreEqual(26, keys[6]);
+            Assert.AreEqual(23, keys[7]);
+
+        }
+
+        [TestMethod]
+        public void InOrderKeys()
+        {
+            BinarySearchTree<int> tree = new BinarySearchTree<int>();
+            tree.Add(8, 7);
+            tree.Add(10, 6);
+            tree.Add(6, 2);
+            tree.Add(5, 0);
+            tree.Add(22, 5);
+            tree.Add(26, 4);
+            tree.Add(7, 1);
+            tree.Add(23, 3);
+            List<int> keys = tree.InOrderKeys;
+            Assert.AreEqual(5, keys[0]);
+            Assert.AreEqual(6, keys[1]);
+            Assert.AreEqual(7, keys[2]);
+            Assert.AreEqual(8, keys[3]);
+            Assert.AreEqual(10, keys[4]);
+            Assert.AreEqual(22, keys[5]);
+            Assert.AreEqual(23, keys[6]);
+            Assert.AreEqual(26, keys[7]);
 
         }
     }

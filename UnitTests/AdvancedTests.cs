@@ -7,6 +7,48 @@ namespace UnitTestProject1
     [TestClass]
     public class AdvancedTests
     {
+
+        [TestMethod]
+        public void MinKey1()
+        {
+            BinarySearchTree<int> tree = new BinarySearchTree<int>();
+            tree.Add(10, 10);
+            tree.Add(5, 5);
+            tree.Add(20, 10);
+            tree.Add(15, 10);
+            tree.Add(25, 10);
+            tree.Add(1, 10);
+            tree.Add(12, 10);
+
+            Assert.AreEqual(1, tree.MinKey);
+        }
+
+        [TestMethod]
+        public void MinKey2()
+        {
+            BinarySearchTree<int> tree = new BinarySearchTree<int>();
+            tree.Add(10, 10);
+            tree.Add(5, 5);
+            tree.Add(20, 10);
+            tree.Add(15, 10);
+            tree.Add(25, 10);
+            tree.Add(12, 10);
+
+            Assert.AreEqual(5, tree.MinKey);
+        }
+
+        [TestMethod]
+        public void MinKey3()
+        {
+            BinarySearchTree<int> tree = new BinarySearchTree<int>();
+            tree.Add(10, 10);
+            tree.Add(20, 10);
+            tree.Add(15, 10);
+            tree.Add(25, 10);
+            tree.Add(12, 10);
+
+            Assert.AreEqual(10, tree.MinKey);
+        }
         [TestMethod]
         public void MedianKey1()
         {
