@@ -218,6 +218,41 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
+        public void RemoveRoot1()
+        {
+            BinarySearchTree<int> tree = new BinarySearchTree<int>();
+            tree.Add(8, 9);
+            tree.Add(10, 11);
+            tree.Add(6, 7);
+            tree.Add(5, 6);
+            tree.Add(22, 23);
+            tree.Add(26, 27);
+            tree.Add(7, 8);
+            tree.Add(23, 24);
+            tree.Remove(8);
+            Assert.AreEqual(3, tree.Height);
+            Assert.IsNull( tree.GetNode(8) );
+        }
+
+        [TestMethod]
+        public void RemoveRoot2()
+        {
+            BinarySearchTree<int> tree = new BinarySearchTree<int>();
+            tree.Add(8, 9);
+            tree.Add(10, 11);
+            tree.Add(6, 7);
+            tree.Add(5, 6);
+            tree.Add(22, 23);
+            tree.Add(26, 27);
+            tree.Add(7, 8);
+            tree.Add(23, 24);
+            tree.Remove(8);
+            tree.Remove(10);
+            Assert.AreEqual(2, tree.Height);
+            Assert.IsNull(tree.GetNode(10));
+        }
+
+        [TestMethod]
         public void PostOrderKeys()
         {
             BinarySearchTree<int> tree = new BinarySearchTree<int>();
