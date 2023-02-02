@@ -18,7 +18,7 @@ namespace Lab0
 
         public int Count { get; private set; }
 
-        // TODO
+        
         public int Height => HeightRecursive(Root);
 
         private int HeightRecursive(BinarySearchTreeNode<T> node)
@@ -39,7 +39,7 @@ namespace Lab0
             return 1 + Math.Max(leftHeight, rightHeight);
         }
 
-        // TODO
+        
         public int? MinKey => MinKeyRecursive(Root);
 
         private int? MinKeyRecursive(BinarySearchTreeNode<T> node)
