@@ -89,6 +89,31 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
+        public void MedianKey5()
+        {
+            BinarySearchTree<int> tree = new BinarySearchTree<int>();
+            tree.Add(1, 3);
+            tree.Add(2, 3);
+            tree.Add(3, 3);
+            tree.Add(10, 3);
+            tree.Add(30, 3);
+            Assert.AreEqual(3.0, tree.MedianKey);
+        }
+
+        [TestMethod]
+        public void MedianKey6()
+        {
+            BinarySearchTree<int> tree = new BinarySearchTree<int>();
+            tree.Add(10, 3);
+            tree.Add(30, 3);
+            tree.Add(35, 3);
+            tree.Add(1, 3);
+            tree.Add(2, 3);
+            tree.Add(3, 3);
+            Assert.AreEqual(6.5, tree.MedianKey);
+        }
+
+        [TestMethod]
         public void Next1()
         {
             BinarySearchTree<int> tree = new BinarySearchTree<int>();

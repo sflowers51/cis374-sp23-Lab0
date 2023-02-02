@@ -62,13 +62,34 @@ namespace Lab0
         public int? MaxKey => throw new NotImplementedException();
 
         // TODO
-        public BinarySearchTreeNode<T> Min => throw new NotImplementedException();
+        public double MedianKey
+        {
+            get
+            {
+                // get the inorder keys
+                var keys = InOrderKeys;
 
-        // TODO
-        public BinarySearchTreeNode<T> Max => throw new NotImplementedException();
+                //odd number of keys
+                if (keys.Count % 2 == 1)
+                {
+                    int middleIndex = keys.Count / 2;
+                    return keys[middleIndex];
+                }
+                // even number of keys
+                else
+                {
+                    int middleIndex1 = keys.Count / 2 - 1;
+                    int middleIndex2 = keys.Count / 2;
 
-        // TODO
-        public double MedianKey => throw new NotImplementedException();
+                    int sum = keys[middleIndex1] + keys[middleIndex2];
+
+                    return sum / 2.0;
+                }
+
+            }
+        }
+
+        //public double GavinsMedianKey => InOrderKeys[
 
 
         public BinarySearchTreeNode<T> GetNode(int key)
@@ -184,10 +205,13 @@ namespace Lab0
         public BinarySearchTreeNode<T> Next(BinarySearchTreeNode<T> node)
         {
             // find the min node in the right child's subtree
+            if (node.Right != null)
+            {
 
+            }
 
+            return null;
 
-            throw new NotImplementedException();
         }
 
         // TODO
@@ -197,9 +221,52 @@ namespace Lab0
         }
 
         // TODO
+        /// <summary>
+        /// Returns all nodes with keys between the given min and max (inclusive), in order.
+        /// </summary>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
         public List<BinarySearchTreeNode<T>> RangeSearch(int min, int max)
         {
-            throw new NotImplementedException();
+
+            // METHOD 1 => Use Next()
+            // make a list
+
+            // find min node ?
+
+            // until max is reached, find next node, add to list
+
+            //var nodes = new List<BinarySearchTreeNode<T>>();
+
+            // find closest node greater than or equal to min
+            //BinarySearchTreeNode<T> startingNode;
+
+            // METHOD 2 => Use InOrderKey
+
+            List<BinarySearchTreeNode<T>> nodeList = new List<BinarySearchTreeNode<T>>();
+
+            if (min > max) {
+                return nodeList;
+            }
+
+            var orderedKeys = this.InOrderKeys;
+
+            foreach (int key in orderedKeys)
+            {
+                if (key >= min && key <= max)
+                {
+                    nodeList.Add( GetNode(key) );
+                }
+
+                if (key > max)
+                {
+                    break;
+                }
+            }
+
+            return nodeList;
         }
 
         public void Remove(int key)
@@ -375,7 +442,19 @@ namespace Lab0
             }
         }
 
-        Tuple<int, T> IBinarySearchTree<T>.Min => throw new NotImplementedException();
+        Tuple<int, T> IBinarySearchTree<T>.Min
+        {
+            get
+            {
+                if (IsEmpty)
+                {
+                    return null;
+                }
+
+                var minNode = MinNode(Root);
+                return Tuple.Create(minNode.Key, minNode.Value);
+            }
+        }
 
         Tuple<int, T> IBinarySearchTree<T>.Max => throw new NotImplementedException();
 
