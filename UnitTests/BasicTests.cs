@@ -44,7 +44,7 @@ namespace UnitTestProject1
                 random = rand.Next();
                 tree.Add(i, random);
             }
-            Assert.AreEqual(49, tree .Height);
+            Assert.AreEqual(49, tree.Height);
         }
 
         [TestMethod]
@@ -137,7 +137,7 @@ namespace UnitTestProject1
             }
             for (int i = 2; i < 49; i++)
             {
-                Assert.AreEqual(tree.Search(i), tree.GetNode(i + 1).Parent.Value );
+                Assert.AreEqual(tree.Search(i), tree.GetNode(i + 1).Parent.Value);
             }
         }
 
@@ -153,7 +153,7 @@ namespace UnitTestProject1
             tree.Add(26, 27);
             tree.Add(7, 8);
             tree.Add(23, 24);
-            Assert.AreEqual(tree.Search(8) , tree.GetNode(10).Parent.Value);
+            Assert.AreEqual(tree.Search(8), tree.GetNode(10).Parent.Value);
             Assert.AreEqual(tree.Search(8), tree.GetNode(6).Parent.Value);
             Assert.AreEqual(tree.Search(6), tree.GetNode(5).Parent.Value);
             Assert.AreEqual(tree.Search(10), tree.GetNode(22).Parent.Value);
@@ -231,7 +231,7 @@ namespace UnitTestProject1
             tree.Add(23, 24);
             tree.Remove(8);
             Assert.AreEqual(3, tree.Height);
-            Assert.IsNull( tree.GetNode(8) );
+            Assert.IsNull(tree.GetNode(8));
         }
 
         [TestMethod]

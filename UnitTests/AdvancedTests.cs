@@ -124,7 +124,7 @@ namespace UnitTestProject1
                 tree.Add(index, index);
             }
 
-            BinarySearchTreeNode<int> current = new BinarySearchTreeNode<int>(1,1);
+            BinarySearchTreeNode<int> current = new BinarySearchTreeNode<int>(1, 1);
             for (int i = 0; i < 49; i++)
             {
                 current = tree.GetNode(i);
