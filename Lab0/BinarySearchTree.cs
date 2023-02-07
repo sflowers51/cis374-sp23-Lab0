@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Xml.Linq;
 
 namespace Lab0
@@ -223,10 +224,25 @@ namespace Lab0
             // find the min node in the right child's subtree
             if (node.Right != null)
             {
+                
+                var child = node.Right;
+                if(child.Left != null)
+                {
+                    while (child.Left != null)
+                    {
+                        child = child.Left;
+                    }
+
+                    return child;
+                }
+
+                return node.Right;
+
 
             }
 
-            return null;
+
+            return node.Left;
 
         }
 
@@ -370,19 +386,12 @@ namespace Lab0
                 }
 
                 // Swap Key and Data from successor to node
-                node.Key = child.Key;
-                parent = node;
-                node = node.Right;
-                key = child.Key;
+                var succData = child;
 
+                parent.Right = succData;
 
                 // Remove the successor (a leaf node) (like case 1)
-                    parent.Left = null;
-                    node.Parent = null;
-                
-
-
-
+                Remove(child.Key);
             }
 
             return;
@@ -406,7 +415,11 @@ namespace Lab0
         // TODO
         public void Update(int key, T value)
         {
-            throw new NotImplementedException();
+            if(Contains(key) == true)
+            {
+                Remove(key);
+                Add(key, value);
+            }
         }
 
 
