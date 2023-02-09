@@ -114,7 +114,7 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
-        public void Next1()
+         public void Next1()
         {
             BinarySearchTree<int> tree = new BinarySearchTree<int>();
             int index = 0;

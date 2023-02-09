@@ -218,15 +218,14 @@ namespace Lab0
             }
         }
 
-        // TODO
+        
         public BinarySearchTreeNode<T> Next(BinarySearchTreeNode<T> node)
         {
             // find the min node in the right child's subtree
             if (node.Right != null)
             {
-                
                 var child = node.Right;
-                if(child.Left != null)
+                if (child.Left != null)
                 {
                     while (child.Left != null)
                     {
@@ -240,16 +239,39 @@ namespace Lab0
 
 
             }
+            else if(node.Right == null)
+            {
+                return node;
+            }
 
-
-            return node.Left;
-
+            return null;
         }
+
+
+        
 
         // TODO
         public BinarySearchTreeNode<T> Prev(BinarySearchTreeNode<T> node)
         {
-            throw new NotImplementedException();
+            if (node.Left != null)
+            {
+                var child = node.Left;
+                if (child.Right != null)
+                {
+                    while (child.Right != null)
+                    {
+                        child = child.Right;
+                    }
+
+                    return child;
+                }
+
+                return node.Left;
+
+
+            }
+
+            return null;
         }
 
         
