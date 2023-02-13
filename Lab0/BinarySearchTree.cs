@@ -266,6 +266,11 @@ namespace Lab0
                     return child;
                 }
 
+                if(child.Left == null)
+                {
+                    return node;
+                }
+
                 return node.Left;
 
 
@@ -399,21 +404,17 @@ namespace Lab0
                 {
                 // Find the node to remove
                 var child = node.Right;
-                
+
 
                 // Find the next node (successor)
-                while(child.Left != null)
-                {
-                    child = child.Left;
-                }
+                var succ = Next(node);
 
                 // Swap Key and Data from successor to node
-                var succData = child;
-
-                parent.Right = succData;
+                
+                child.Parent = succ;
 
                 // Remove the successor (a leaf node) (like case 1)
-                Remove(child.Key);
+                Remove(succ.Key);
             }
 
             return;
